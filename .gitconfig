@@ -1,0 +1,10 @@
+[user]
+	name = Sean Zipperer
+	email = celthunder@archlinux.us
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[github]
+	user = celthunder
+	token = f20f3308b532e3e0883c976df4b07fe1

@@ -1,0 +1,3 @@
+devmon &
+xmonad
+

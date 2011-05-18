@@ -1,0 +1,521 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>tmux is a terminal multiplexer, it enables a number of terminals (or windows) to be accessed and controlled from a single terminal. ()</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<link rel="SHORTCUT ICON" href="http://gmane.org/favicon.ico">
+<link rel="Up" href="/gmane.comp.terminal-emulators.tmux.user>">
+<LINK href="http://gmane.org/img/leftmenu.css" type="text/css" rel="stylesheet">
+<LINK href="http://gmane.org/img/blog.css" type="text/css" rel="stylesheet">
+<style type="text/css" media="screen">
+h1.name {
+  background-image:  url(http://gmane.org/paint-blog-id.php?group=gmane.comp.terminal-emulators.tmux.user);
+}
+</style>
+</HEAD>
+<BODY>
+<div id=banner>
+<h1 class=name>&nbsp;</h1>
+<span class=description>tmux is a terminal multiplexer, it enables a number of terminals (or windows) to be accessed and controlled from a single terminal. ()</span>
+</div>
+<script src="http://gmane.org/img/jsblog.js" type="text/javascript"></script>
+
+<DIV id=content>
+<DIV class=blog>
+<div class=posting>
+<DIV class=entry>
+<DIV class=date>
+<div class=options><a rel=nofollow href="#" onclick="return toggle('o1');">headers</a></div>
+<span class=author>
+<a href="http://search.gmane.org/?author=Vaibhav+Bedia&amp;sort=date" rel=nofollow>Vaibhav Bedia</a>
+ | </span>
+<SPAN class=day>3 Mar 06:10</SPAN>
+</DIV>
+<DIV class=blogbody><A name=5></A>
+<div class=face>
+<a target="_top" href="http://ftp.cs.indiana.edu/pub/faces/picons/"><img border=0 alt="Picon" src="http://cache.gmane.org//gmane/comp/terminal-emulators/tmux/user/1273-picon-001.gif"></a>
+<br>
+</div>
+<H2 class=title>tmux: open terminal failed: missing or unsuitable terminal: xterm</h2><div id="o1" class="hidden">Vaibhav Bedia &lt;vaibhav.bedia &lt;at&gt; gmail.com&gt;<br>
+2011-03-03 05:10:14 GMT<br>
+</div>
+<pre>
+Hi,
+
+I am using tmux-1.4. I just started getting the error (open terminal
+failed: missing or unsuitable terminal: xterm) when trying to attach
+to a pre-existing session.
+
+I can't start a new session also.
+
+However reverting to tmux-1.3 (and the corresponding libevent) works fine.
+
+I am not sure if some change i did after detaching from the session is
+causing this.
+
+$ tmux -vvvv
+
+tmux-client and tmux-out log files are empty.
+
+$ cat tmux-server-6482.log
+
+server started, pid 6482
+socket path /tmp/tmux-51130/default
+new client 10
+session 0 created
+got 14 from client 10
+got 14 from client 10
+got 14 from client 10
+got 14 from client 10
+got 14 from client 10
+got 14 from client 10
+got 14 from client 10
+</pre><a href="http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1273">(Continue reading)</a><br><br>
+<DIV class=posted>
+<form class="spam" method="post" action="http://spam.gmane.org/gmane.comp.terminal-emulators.tmux.user:1273:unconfirmed" onsubmit="openSpamFrame(this); return false;">
+<A href="http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1273">Permalink</A>
+| <a href="http://post.gmane.org/post.php?group=gmane.comp.terminal-emulators.tmux.user&amp;followup=1273" rel=nofollow>Reply</a>
+| <input class="spam" type="submit" value="Report this as spam">
+</form>
+</DIV>  
+
+</DIV>  
+</DIV>  
+
+<div class=posting>
+<DIV class=entry>
+<DIV class=date>
+<div class=options><a rel=nofollow href="#" onclick="return toggle('o2');">headers</a></div>
+<span class=author>
+<a href="http://search.gmane.org/?author=Nicholas+Marriott&amp;sort=date" rel=nofollow>Nicholas Marriott</a>
+ | </span>
+<SPAN class=day>3 Mar 09:37</SPAN>
+</DIV>
+<DIV class=blogbody><A name=5></A>
+<div class=face>
+<a target="_top" href="http://ftp.cs.indiana.edu/pub/faces/picons/"><img border=0 alt="Picon" src="http://cache.gmane.org//gmane/comp/terminal-emulators/tmux/user/1275-picon-001.gif"></a>
+<br>
+</div>
+<H3 class=title>Re: tmux: open terminal failed: missing or unsuitable terminal: xterm</h3><div id="o2" class="hidden">Nicholas Marriott &lt;nicholas.marriott &lt;at&gt; gmail.com&gt;<br>
+2011-03-03 08:37:48 GMT<br>
+</div>
+<pre>
+Now that is weird.
+
+What libevent version? What platform - Linux?
+
+Please kill tmux entirely, run it with "strace -f -o strace.out tmux new" then detach
+and try to reattach and send me the file.
+
+On Thu, Mar 03, 2011 at 10:40:14AM +0530, Vaibhav Bedia wrote:
+&gt; Hi,
+&gt; 
+&gt; I am using tmux-1.4. I just started getting the error (open terminal
+&gt; failed: missing or unsuitable terminal: xterm) when trying to attach
+&gt; to a pre-existing session.
+&gt; 
+&gt; I can't start a new session also.
+&gt; 
+&gt; However reverting to tmux-1.3 (and the corresponding libevent) works fine.
+&gt; 
+&gt; I am not sure if some change i did after detaching from the session is
+&gt; causing this.
+&gt; 
+&gt; $ tmux -vvvv
+&gt; 
+&gt; tmux-client and tmux-out log files are empty.
+&gt; 
+&gt; $ cat tmux-server-6482.log
+&gt; 
+&gt; server started, pid 6482
+&gt; socket path /tmp/tmux-51130/default
+&gt; new client 10
+</pre><a href="http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1275">(Continue reading)</a><br><br>
+<DIV class=posted>
+<form class="spam" method="post" action="http://spam.gmane.org/gmane.comp.terminal-emulators.tmux.user:1275:unconfirmed" onsubmit="openSpamFrame(this); return false;">
+<A href="http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1275">Permalink</A>
+| <a href="http://post.gmane.org/post.php?group=gmane.comp.terminal-emulators.tmux.user&amp;followup=1275" rel=nofollow>Reply</a>
+| <input class="spam" type="submit" value="Report this as spam">
+</form>
+</DIV>  
+
+</DIV>  
+</DIV>  
+
+</div>
+<div class=posting>
+<DIV class=entry>
+<DIV class=date>
+<div class=options><a rel=nofollow href="#" onclick="return toggle('o3');">headers</a></div>
+<span class=author>
+<a href="http://search.gmane.org/?author=Micah+Cowan&amp;sort=date" rel=nofollow>Micah Cowan</a>
+ | </span>
+<SPAN class=day>3 Mar 19:42</SPAN>
+</DIV>
+<DIV class=blogbody><A name=5></A>
+<div class=face>
+<a target="_top" href="http://gravatar.com/" rel="nofollow"><img border=0 alt="Gravatar" src="http://cache.gmane.org//gmane/comp/terminal-emulators/tmux/user/1279-gravatar"></a>
+<br>
+</div>
+<H3 class=title>Re: tmux: open terminal failed: missing or unsuitable terminal: xterm</h3><div id="o3" class="hidden">Micah Cowan &lt;micah &lt;at&gt; cowan.name&gt;<br>
+2011-03-03 18:42:48 GMT<br>
+</div>
+<pre>
+(03/02/2011 09:10 PM), Vaibhav Bedia wrote:
+&gt; Hi,
+&gt; 
+&gt; I am using tmux-1.4. I just started getting the error (open terminal
+&gt; failed: missing or unsuitable terminal: xterm) when trying to attach
+&gt; to a pre-existing session.
+
+That error message would indicate that a terminfo database entry can't
+be found for "xterm". Make sure that TERMINFO isn't set (or else,
+explicitly set it to where it should be able to find its terminfo
+database). If setting it explicitly has a positive effect, then perhaps
+your tmux 1.4 was built with a different idea of where terminfo stuff
+should be, than tmux 1.3 was. Were they built/linked against different
+versions of ncurses? Was tmux 1.4 obtained or built using different
+means than tmux 1.3 was?
+
+In addition to playing with TERMINFO, you might also try copying
+/usr/share/terminfo<i>/x/</i>* (or wherever it is) into ~/.terminfo<i>/x/</i>.
+
+Good paths to try for TERMINFO include /etc/terminfo, /lib/terminfo, and
+/usr/share/terminfo. Find out which one has an x/xterm in it and set it
+to that.
+
+If any of these tricks work, then the next step would be to find out why
+it's not looking at that place by default.
+
+BTW, in order for the TERMINFO trick to work, it has to be set in the
+_<u>server</u>_'s environment, not the client's, so be sure to completely kill
+and restart tmux (with the new environment setting) when you try it
+(setting it for just a client WON'T work).
+</pre><a href="http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1279">(Continue reading)</a><br><br>
+<DIV class=posted>
+<form class="spam" method="post" action="http://spam.gmane.org/gmane.comp.terminal-emulators.tmux.user:1279:unconfirmed" onsubmit="openSpamFrame(this); return false;">
+<A href="http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1279">Permalink</A>
+| <a href="http://post.gmane.org/post.php?group=gmane.comp.terminal-emulators.tmux.user&amp;followup=1279" rel=nofollow>Reply</a>
+| <input class="spam" type="submit" value="Report this as spam">
+</form>
+</DIV>  
+
+</DIV>  
+</DIV>  
+
+<div class=posting>
+<DIV class=entry>
+<DIV class=date>
+<div class=options><a rel=nofollow href="#" onclick="return toggle('o4');">headers</a></div>
+<span class=author>
+<a href="http://search.gmane.org/?author=Vaibhav+Bedia&amp;sort=date" rel=nofollow>Vaibhav Bedia</a>
+ | </span>
+<SPAN class=day>4 Mar 14:22</SPAN>
+</DIV>
+<DIV class=blogbody><A name=5></A>
+<div class=face>
+<a target="_top" href="http://ftp.cs.indiana.edu/pub/faces/picons/"><img border=0 alt="Picon" src="http://cache.gmane.org//gmane/comp/terminal-emulators/tmux/user/1288-picon-001.gif"></a>
+<br>
+</div>
+<H3 class=title>Re: tmux: open terminal failed: missing or unsuitable terminal: xterm</h3><div id="o4" class="hidden">Vaibhav Bedia &lt;vaibhav.bedia &lt;at&gt; gmail.com&gt;<br>
+2011-03-04 13:22:41 GMT<br>
+</div>
+<pre>
+Hi Micah,
+
+On Fri, Mar 4, 2011 at 12:12 AM, Micah Cowan &lt;micah &lt;at&gt; cowan.name&gt; wrote:
+&gt; (03/02/2011 09:10 PM), Vaibhav Bedia wrote:
+&gt;&gt; Hi,
+&gt;&gt;
+&gt;&gt; I am using tmux-1.4. I just started getting the error (open terminal
+&gt;&gt; failed: missing or unsuitable terminal: xterm) when trying to attach
+&gt;&gt; to a pre-existing session.
+&gt;
+&gt; That error message would indicate that a terminfo database entry can't
+&gt; be found for "xterm". Make sure that TERMINFO isn't set (or else,
+&gt; explicitly set it to where it should be able to find its terminfo
+&gt; database). If setting it explicitly has a positive effect, then perhaps
+&gt; your tmux 1.4 was built with a different idea of where terminfo stuff
+&gt; should be, than tmux 1.3 was. Were they built/linked against different
+&gt; versions of ncurses? Was tmux 1.4 obtained or built using different
+&gt; means than tmux 1.3 was?
+
+Yes its with different versions of ncurses and libevent. I was using a
+pre-compiled binary for tmux-1.3 and even libevent path was set to
+someone else's compiled version on a server.
+
+I am not sure about this but since both are in the same machine i
+guess except the libevent and ncurses part the build procedure was the
+same.
+
+&gt;
+&gt; In addition to playing with TERMINFO, you might also try copying
+&gt; /usr/share/terminfo<i>/x/</i>* (or wherever it is) into ~/.terminfo<i>/x/</i>.
+</pre><a href="http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1288">(Continue reading)</a><br><br>
+<DIV class=posted>
+<form class="spam" method="post" action="http://spam.gmane.org/gmane.comp.terminal-emulators.tmux.user:1288:unconfirmed" onsubmit="openSpamFrame(this); return false;">
+<A href="http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1288">Permalink</A>
+| <a href="http://post.gmane.org/post.php?group=gmane.comp.terminal-emulators.tmux.user&amp;followup=1288" rel=nofollow>Reply</a>
+| <input class="spam" type="submit" value="Report this as spam">
+</form>
+</DIV>  
+
+</DIV>  
+</DIV>  
+
+<div class=posting>
+<DIV class=entry>
+<DIV class=date>
+<div class=options><a rel=nofollow href="#" onclick="return toggle('o5');">headers</a></div>
+<span class=author>
+<a href="http://search.gmane.org/?author=Micah+Cowan&amp;sort=date" rel=nofollow>Micah Cowan</a>
+ | </span>
+<SPAN class=day>4 Mar 17:17</SPAN>
+</DIV>
+<DIV class=blogbody><A name=5></A>
+<div class=face>
+<a target="_top" href="http://gravatar.com/" rel="nofollow"><img border=0 alt="Gravatar" src="http://cache.gmane.org//gmane/comp/terminal-emulators/tmux/user/1291-gravatar"></a>
+<br>
+</div>
+<H3 class=title>Re: tmux: open terminal failed: missing or unsuitable terminal: xterm</h3><div id="o5" class="hidden">Micah Cowan &lt;micah &lt;at&gt; cowan.name&gt;<br>
+2011-03-04 16:17:56 GMT<br>
+</div>
+<pre>
+On 03/04/2011 05:22 AM, Vaibhav Bedia wrote:
+&gt; Setting TERMINFO manually to /usr/share/terminfo worked.
+
+My suspicion is that the ncurses you linked against with tmux 1.4, has
+the wrong set of "default paths" to search, while the one you linked
+against with 1.3 had the right ones. Was probably a configure-time
+option to ncurses.
+
+To verify this, run "strings &lt;path&gt; | grep /usr/share/terminfo" on both
+of the ncurses library files, and see whether you get any results for
+the new one. If not, you may have to rebuild/obtain a new copy of your
+ncurses; one with the right search paths (or you could just set TERMINFO
+in your exports permanently, which is probably easier).
+
+&gt; However i have a really strange observation.
+&gt; 
+&gt; I just exported TERMINFO variable and then launched a tmux session.
+&gt; Then i detached from it and logged out from the server i was working
+&gt; on.
+&gt; 
+&gt; When i again log in i again check TERMINFO and its not set to anything
+&gt; (since i just did an export earlier).
+&gt; 
+&gt; But now i can reattach to the session i had invoked earlier.
+
+Yeah, as I said before, setting TERMINFO only matters to the server.
+This is because it's the server that does all the work; the clients do
+almost nothing, other than tell the server where to draw things to (and
+what the name of the terminal is, and other environment settings). So,
+it's the server that does terminal name lookups in ncurses, which is
+</pre><a href="http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1291">(Continue reading)</a><br><br>
+<DIV class=posted>
+<form class="spam" method="post" action="http://spam.gmane.org/gmane.comp.terminal-emulators.tmux.user:1291:unconfirmed" onsubmit="openSpamFrame(this); return false;">
+<A href="http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1291">Permalink</A>
+| <a href="http://post.gmane.org/post.php?group=gmane.comp.terminal-emulators.tmux.user&amp;followup=1291" rel=nofollow>Reply</a>
+| <input class="spam" type="submit" value="Report this as spam">
+</form>
+</DIV>  
+
+</DIV>  
+</DIV>  
+
+</div>
+<div class=posting>
+<DIV class=entry>
+<DIV class=date>
+<div class=options><a rel=nofollow href="#" onclick="return toggle('o6');">headers</a></div>
+<span class=author>
+<a href="http://search.gmane.org/?author=Nicholas+Marriott&amp;sort=date" rel=nofollow>Nicholas Marriott</a>
+ | </span>
+<SPAN class=day>5 Mar 00:17</SPAN>
+</DIV>
+<DIV class=blogbody><A name=5></A>
+<div class=face>
+<a target="_top" href="http://ftp.cs.indiana.edu/pub/faces/picons/"><img border=0 alt="Picon" src="http://cache.gmane.org//gmane/comp/terminal-emulators/tmux/user/1301-picon-001.gif"></a>
+<br>
+</div>
+<H3 class=title>Re: tmux: open terminal failed: missing or unsuitable terminal: xterm</h3><div id="o6" class="hidden">Nicholas Marriott &lt;nicholas.marriott &lt;at&gt; gmail.com&gt;<br>
+2011-03-04 23:17:58 GMT<br>
+</div>
+<pre>
+It looks like your shell is exiting after
+
+22804 write(2, "sh: vifm: command not found\n", 28) = 28
+22802 &lt;... epoll_wait resumed&gt; {{EPOLLIN, {u32=14, u64=14}}}, 32, 484) = 1
+22804 exit_group(127)                   = ?
+
+but that has nothing to do with the error you are seeing. In fact, that
+error does not appear in the strace at all.
+
+Can you strace the server then the client that fails to attach to
+different files? Preferably with a new user with no shell startup files.
+
+On Fri, Mar 04, 2011 at 06:52:41PM +0530, Vaibhav Bedia wrote:
+&gt; Hi Micah,
+&gt; 
+&gt; On Fri, Mar 4, 2011 at 12:12 AM, Micah Cowan &lt;micah &lt;at&gt; cowan.name&gt; wrote:
+&gt; &gt; (03/02/2011 09:10 PM), Vaibhav Bedia wrote:
+&gt; &gt;&gt; Hi,
+&gt; &gt;&gt;
+&gt; &gt;&gt; I am using tmux-1.4. I just started getting the error (open terminal
+&gt; &gt;&gt; failed: missing or unsuitable terminal: xterm) when trying to attach
+&gt; &gt;&gt; to a pre-existing session.
+&gt; &gt;
+&gt; &gt; That error message would indicate that a terminfo database entry can't
+&gt; &gt; be found for "xterm". Make sure that TERMINFO isn't set (or else,
+&gt; &gt; explicitly set it to where it should be able to find its terminfo
+&gt; &gt; database). If setting it explicitly has a positive effect, then perhaps
+&gt; &gt; your tmux 1.4 was built with a different idea of where terminfo stuff
+&gt; &gt; should be, than tmux 1.3 was. Were they built/linked against different
+&gt; &gt; versions of ncurses? Was tmux 1.4 obtained or built using different
+</pre><a href="http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1301">(Continue reading)</a><br><br>
+<DIV class=posted>
+<form class="spam" method="post" action="http://spam.gmane.org/gmane.comp.terminal-emulators.tmux.user:1301:unconfirmed" onsubmit="openSpamFrame(this); return false;">
+<A href="http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1301">Permalink</A>
+| <a href="http://post.gmane.org/post.php?group=gmane.comp.terminal-emulators.tmux.user&amp;followup=1301" rel=nofollow>Reply</a>
+| <input class="spam" type="submit" value="Report this as spam">
+</form>
+</DIV>  
+
+</DIV>  
+</DIV>  
+
+<div class=posting>
+<DIV class=entry>
+<DIV class=date>
+<div class=options><a rel=nofollow href="#" onclick="return toggle('o7');">headers</a></div>
+<span class=author>
+<a href="http://search.gmane.org/?author=Vaibhav+Bedia&amp;sort=date" rel=nofollow>Vaibhav Bedia</a>
+ | </span>
+<SPAN class=day>7 Mar 13:01</SPAN>
+</DIV>
+<DIV class=blogbody><A name=5></A>
+<div class=face>
+<a target="_top" href="http://ftp.cs.indiana.edu/pub/faces/picons/"><img border=0 alt="Picon" src="http://cache.gmane.org//gmane/comp/terminal-emulators/tmux/user/1306-picon-001.gif"></a>
+<br>
+</div>
+<H3 class=title>Re: tmux: open terminal failed: missing or unsuitable terminal: xterm</h3><div id="o7" class="hidden">Vaibhav Bedia &lt;vaibhav.bedia &lt;at&gt; gmail.com&gt;<br>
+2011-03-07 12:01:19 GMT<br>
+</div>
+<pre>
+On Sat, Mar 5, 2011 at 4:47 AM, Nicholas Marriott
+&lt;nicholas.marriott &lt;at&gt; gmail.com&gt; wrote:
+&gt; It looks like your shell is exiting after
+&gt;
+&gt; 22804 write(2, "sh: vifm: command not found\n", 28) = 28
+&gt; 22802 &lt;... epoll_wait resumed&gt; {{EPOLLIN, {u32=14, u64=14}}}, 32, 484) = 1
+&gt; 22804 exit_group(127)                   = ?
+&gt;
+&gt; but that has nothing to do with the error you are seeing. In fact, that
+&gt; error does not appear in the strace at all.
+&gt;
+&gt; Can you strace the server then the client that fails to attach to
+&gt; different files? Preferably with a new user with no shell startup files.
+
+Unfortunately i can't get a new user account on the server where i am
+having this issue.
+I tried removing the shell startup files for my account but this does not help.
+
+However setting the TERMINFO path as pointed by Micah fixes this. I
+just added it in my bashrc for now.
+
+<span class="togsig"><a rel=nofollow href="#" onclick="return toggle('sig7')">--</a></span>
+<span id="sig7" class=signature>
+-- 
+Regards,
+Vaibhav
+
+------------------------------------------------------------------------------
+What You Don't Know About Data Connectivity CAN Hurt You
+This paper provides an overview of data connectivity, details
+its effect on application quality, and explores various alternative
+solutions. <a rel="nofollow" href="http://p.sf.net/sfu/progress-d2d" target="_top">http://p.sf.net/sfu/progress-d2d</a>
+</span></pre><a href="http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1306">(Continue reading)</a><br><br>
+<DIV class=posted>
+<form class="spam" method="post" action="http://spam.gmane.org/gmane.comp.terminal-emulators.tmux.user:1306:unconfirmed" onsubmit="openSpamFrame(this); return false;">
+<A href="http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1306">Permalink</A>
+| <a href="http://post.gmane.org/post.php?group=gmane.comp.terminal-emulators.tmux.user&amp;followup=1306" rel=nofollow>Reply</a>
+| <input class="spam" type="submit" value="Report this as spam">
+</form>
+</DIV>  
+
+</DIV>  
+</DIV>  
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</DIV>  
+
+</div>
+
+<div id="sidebox">
+
+<div class="sidetitle">Return</div>
+<div class="side">
+Return to <a href="http://blog.gmane.org/gmane.comp.terminal-emulators.tmux.user">gmane.comp.terminal-emulators.tmux.user</a>.
+</div>
+
+
+
+<div class="sidetitle">Project Web Page</div>
+<div class="side">
+   <a href="http://tmux.sourceforge.net">tmux is a terminal multiplexer, it enables a number of terminals (or windows) to be accessed and controlled from a single terminal. ()</a>
+</div>
+
+<div class="sidetitle">Search Archive</div>
+<div class="side">
+<div align="center">
+<br/>
+<form action="http://search.gmane.org" method="get">
+<input name="query" value="" title="search_text"/><input type="submit" title="SUBMIT" value="Search"/>
+<input type=hidden name="group" value="gmane.comp.terminal-emulators.tmux.user">
+</form>
+</div>
+</div>
+
+
+
+
+
+<div class="sidetitle">Language</div>
+<div class="side">
+   <a rel=nofollow href="http://gmane.org/language.php">Change language</a>
+</div>
+
+
+<div class="sidetitle">Options</div>
+<div class="side">
+Current view: 
+Threads only / Showing 
+ only 20 lines /
+ Not hiding cited text.<br/>
+    Change to 
+<a rel=nofollow href="?set_blog_all=yes">All messages, </a><a rel=nofollow href="?set_lines=100000">whole messages</a>, or 
+<a rel=nofollow href="?set_cite=hide">hide cited text</a>.<br /><br />
+
+<a href="http://post.gmane.org/post.php?group=gmane.comp.terminal-emulators.tmux.user" rel=nofollow>Post a message</a><br/>
+<a href="nntp://news.gmane.org/gmane.comp.terminal-emulators.tmux.user">NNTP Newsgroup</a><br/>
+<a rel=nofollow href="http://news.gmane.org/find-root.php?message_id=%3cAANLkTinELaasv98C8aHqs1%3dWLbnpouU1m2V9j4Zfsm0y%40mail.gmail.com%3e">Classic Gmane web interface</a><br/>
+
+<a href="http://rss.gmane.org/gmane.comp.terminal-emulators.tmux.user"><img src="http://gmane.org/img/xml.gif" alt="XML" border=0>&nbsp;RSS Feed</a><br/>
+<a href="http://dir.gmane.org/gmane.comp.terminal-emulators.tmux.user">List Information</a><br/><br/>
+<a href="http://gmane.org/faq.php">About Gmane</a><br/>
+</div>
+
+</div>
+
+    <br clear="all" />
+
+<div class="bottombox"><p class="bottomtext"><a href="http://gmane.org/">Gmane</a></p></div>
+  </body>
+</html>
+
+

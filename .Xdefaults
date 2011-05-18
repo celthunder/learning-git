@@ -1,0 +1,28 @@
+# transparency - true or false (default)
+URxvt*transparent:false
+
+# scrollback buffer lines - 65535 is max (64 is default)
+URxvt*saveLines:12000
+
+# font color (default is black)
+URxvt*foreground:White
+
+# background color (prior to tinting) (default is white)
+URxvt*background:Black
+
+# xft fonts - anti-aliased xft font setup is nice, but can be choppy
+URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=13
+
+# traditional fonts - a more traditional font setup in lieu of xft
+#URxvt*font:-*-courier-medium-r-normal-*-*-140-*-*-*-*-iso8859-1
+#URxvt*boldFont:-*-courier-bold-r-normal-*-*-140-*-*-*-*-iso8859-1
+
+
+# scrollbar - true (default) or false
+URxvt*scrollBar:true
+
+# scrollbar position - left=false (default) or right=true
+#URxvt*scrollBar_right:false
+
+# scrollbar style - rxvt (default), plain, next, or xterm
+URxvt*scrollstyle:rxvt

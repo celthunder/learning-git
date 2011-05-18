@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>256 colors terminal with tmux and urxvt - Mounir Lamouri's Blog</title>
+  <meta name="description" lang="en" content="A few days ago, I was trying to change my vim theme for a 256-color one and I realized urxvt was not supporting 256 colors out of the box. Hopefully, there is a patch to get a 256" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="Mounir Lamouri" />
+  <meta name="date" scheme="W3CDTF" content="2010-03-21T12:39:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="256 colors terminal with tmux and urxvt" />
+  <meta name="dc.description" lang="en" content="A few days ago, I was trying to change my vim theme for a 256-color one and I realized urxvt was not supporting 256 colors out of the box. Hopefully, there is a patch to get a 256" />
+  <meta name="dc.creator" content="Mounir Lamouri" />
+  <meta name="dc.language" content="en" />
+  <meta name="dc.publisher" content="Mounir Lamouri" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="W3CDTF" content="2010-03-21T12:39:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="http://blog.oldworld.fr/index.php?" title="Home" />
+  <link rel="contents" href="http://blog.oldworld.fr/index.php?archive" title="Archives" />
+  
+  <link rel="next" href="http://blog.oldworld.fr/index.php?post/2010/08/10/A-script-to-get-tinderbox-logs-without-going-to-the-web-interface"
+  title="A script to get tinderbox logs without going to the web interface" />
+  
+  <link rel="previous" href="http://blog.oldworld.fr/index.php?post/2010/03/19/Placeholder-attribute-in-Firefox-3.7-alphas"
+  title="Placeholder attribute in Firefox 3.7 alphas" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="http://blog.oldworld.fr/index.php?feed/atom" />
+  
+  <link rel="stylesheet" href="/themes/time-flies/screen.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="/themes/time-flies/print.css" type="text/css" media="print" />
+<!--[if IE]>
+<link rel="stylesheet" href="/themes/time-flies/ie.css" type="text/css" media="screen, projection" />
+<![endif]-->
+
+<link rel="stylesheet" href="/themes/time-flies/time-flies.css" type="text/css" media="screen, projection" />
+
+<script type="text/javascript" src="/themes/time-flies/../default/js/jquery.js"></script>
+<script type="text/javascript" src="/themes/time-flies/../default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="/themes/time-flies/../default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Remember me on this blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+<![CDATA[>
+<!--[
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+<rdf:Description
+  rdf:about="http://blog.oldworld.fr/index.php?post/2010/03/21/256-colors-terminal-with-tmux-and-urxvt"
+  dc:identifier="http://blog.oldworld.fr/index.php?post/2010/03/21/256-colors-terminal-with-tmux-and-urxvt"
+  dc:title="256 colors terminal with tmux and urxvt"
+  trackback:ping="http://blog.oldworld.fr/index.php?trackback/12" />
+</rdf:RDF>
+<!]]><!---->
+
+
+<div id="top">
+  <h1><span><a href="http://blog.oldworld.fr/index.php?">Mounir Lamouri's Blog</a></span></h1>
+
+  </div>
+
+<p id="prelude"><a href="#main">To content</a> |
+<a href="#blognav">To menu</a> |
+<a href="#search">To search</a></p>
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+  
+  <p id="navlinks">
+  <a href="http://blog.oldworld.fr/index.php?post/2010/03/19/Placeholder-attribute-in-Firefox-3.7-alphas"
+  title="Placeholder attribute in Firefox 3.7 alphas" class="prev">&#171; Placeholder attribute in Firefox 3.7 alphas</a>
+   <span>-</span> <a href="http://blog.oldworld.fr/index.php?post/2010/08/10/A-script-to-get-tinderbox-logs-without-going-to-the-web-interface"
+  title="A script to get tinderbox logs without going to the web interface" class="next">A script to get tinderbox logs without going to &#187;</a>
+  </p>
+  
+  <div id="p12" class="post">
+    <h2 class="post-title">256 colors terminal with tmux and urxvt</h2>
+    
+    <p class="post-info">By Mounir Lamouri    on Sunday, March 21 2010, 12:39        - <a href="http://blog.oldworld.fr/index.php?post/2010/03/21/256-colors-terminal-with-tmux-and-urxvt">Permalink</a>
+    </p>
+    
+        <ul class="post-tags">    <li><a href="http://blog.oldworld.fr/index.php?tag/gentoo">gentoo</a></li>
+                <li><a href="http://blog.oldworld.fr/index.php?tag/tmux">tmux</a></li>
+                <li><a href="http://blog.oldworld.fr/index.php?tag/urxvt">urxvt</a></li>
+    </ul>    
+    
+        
+    <div class="post-content"><p>A few days ago, I was trying to change my vim theme for a 256-color one and I realized urxvt was not supporting 256 colors out of the box. Hopefully, there is a patch to get a 256 colors terminal with urxvt. It is available in the the Gentoo package, you just have to enable the <em>xterm-color</em> USE flag for rxvt-unicode like this:</p>
+<pre>
+echo &quot;x11-terms/rxvt-unicode xterm-color &gt;&gt; /etc/portage/package.use
+</pre>
+
+
+<p>If you recompile rxvt-unicode, you should now get more colors. You can test it by using a 256-color vim theme like <a href="http://www.vim.org/scripts/script.php?script_id=1243">desert256</a> <sup>[<a href="#pnote-12-1" id="rev-pnote-12-1">1</a>]</sup>. You can also run:</p>
+<pre>
+tput colors
+</pre>
+
+<p>I got 88 instead of 256. I don't know why but it's still a lot better than 16 colors.</p>
+
+
+<p>Now, you have to make sure tmux is using 256 colors otherwise you will get a weird behavior. According to the <a href="http://tmux.cvs.sourceforge.net/viewvc/*checkout*/tmux/tmux/FAQ">tmux FAQ</a>, it is really easy and you have to add a this line in <em>~/.tmux.conf</em>:</p>
+<pre>
+set -g default-terminal &quot;screen-256color&quot;
+</pre>
+
+<p>In my system it was not working so I have to tell tmux my terminal supports 256 colors by using '-2' argument. You can add this line to your <em>~/.bashrc</em> to always call tmux with '-2':</p>
+<pre>
+ alias tmux=&quot;tmux -2&quot;
+</pre>
+
+<p>Now, if you run <em>`tput colors`</em> in a tmux session, you should get 256.</p>
+
+
+<p>If you are using vim, you should add this line to you <em>~/.vimrc</em>:</p>
+<pre>
+set t_Co=256
+</pre>
+
+
+<p>Hope this is helping !</p>
+<div class="footnotes"><h4>Notes</h4>
+<p>[<a href="#rev-pnote-12-1" id="pnote-12-1">1</a>] To compare themes, you can try <a href="http://code.google.com/p/vimcolorschemetest/" title="http://code.google.com/p/vimcolorschemetest/">http://code.google.com/p/vimcolorsc...</a></p></div>
+</div>
+
+      </div>
+
+  
+
+                <div id="comments">
+        <h3>Comments</h3>
+      <dl>
+          <dt id="c420" class=" odd first"><a
+      href="#c420" class="comment-number">1.</a>
+      On Sunday, March 21 2010, 14:01      by devilhorns</dt>
+      
+      <dd class=" odd first">
+
+            
+      <p>You only get 88 colors due to the gentoo patch for urxvt. If you read the patch (and the ebuild), enabling xterm-color USE flag does enable more colors, but by default, the ebuild only enables 88 when patched. Why someone choose 88 colors over 256 for default, I'll never know</p>
+            </dd>
+                  <dt id="c421" class="  "><a
+      href="#c421" class="comment-number">2.</a>
+      On Sunday, March 21 2010, 14:48      by <a href="http://my.opera.com/Sterkrig/" rel="nofollow">krigstask</a></dt>
+      
+      <dd class="  ">
+
+            
+      <p>I have 88 colours available in my urxvt, even without gentoo-specific patches</p>
+
+
+<p>~ % tput colors<br />
+88<br />
+~ % equery u rxvt-unicode<br />
+…<br />
+- - afterimage<br />
+- - iso14755<br />
+- + perl<br />
++ + truetype<br />
+- + vanilla<br />
+- - wcwidth<br />
+- - xterm-color</p>
+
+
+<p>There's something wrong here, I guess (-:E</p>
+            </dd>
+                  <dt id="c933" class=" odd "><a
+      href="#c933" class="comment-number">3.</a>
+      On Tuesday, May 11 2010, 03:06      by <a href="http://zhar.net" rel="nofollow">John Eikenberry</a></dt>
+      
+      <dd class=" odd ">
+
+            
+      <p>It comes up as only supporting 88 colors as rxvt-unicode's terminfo database entry has it at 88 colors. If you work on external machines a lot via ssh then what you are already doing is about the best way. If you work primarily on one or a few machines then a custom/local .terminfo database can be simpler.</p>
+
+
+<p>$ infocmp -L rxvt-unicode &gt; rxvt-unicode.terminfo<br />
+$ [editor] rxvt-unicode.terminfo</p>
+
+
+<p>Find max_colors and max_pairs and change them from...<br />
+max_colors#88, max_pairs#256,<br />
+to...<br />
+max_colors#256, max_pairs#32767,<br />
+Those are the values from xterm-256color. Those fields should be near<br />
+the top of the file. Save it.</p>
+
+
+<p>$ mkdir .terminfo/<br />
+$ tic -o .terminfo/ rxvt-unicode.terminfo</p>
+            </dd>
+                  <dt id="c1841" class="  "><a
+      href="#c1841" class="comment-number">4.</a>
+      On Monday, July 26 2010, 11:15      by <a href="http://www.superior-replica.com" rel="nofollow">fredie</a></dt>
+      
+      <dd class="  ">
+
+            
+      <p>. If you read the patch (and Ebuild), which permits Xterm colors USE flag given to allow more colors, though default, Ebuild only gives 88, as soon patched. Why some people choose 88 colors at 256 by default, I never know</p>
+            </dd>
+                  <dt id="c2036" class=" odd "><a
+      href="#c2036" class="comment-number">5.</a>
+      On Friday, October 29 2010, 03:27      by <a href="http://edhardyuk.info/" rel="nofollow">edhardyuk</a></dt>
+      
+      <dd class=" odd ">
+
+            
+      <p>Yesterday ,I found some very fashional style clothes on the Internet ,I was shocked and I think it is amazing ,I have never seen this style befor. It is cool and I shared my information with my friends, they opened their mouth big and I knew they were interested in this brand : &lt;a href="<a href="http://www.edhardystorm.com/" title="http://www.edhardystorm.com/" rel="nofollow">http://www.edhardystorm.com/</a>" &gt;Ed Hardy&lt;/a&gt; .I give you what I like ,and I hope you will like it ,it is really very fashional ,and when you wear the clothes you will fell it is cool !</p>
+            </dd>
+          </dl>
+      </div>
+            
+      
+        
+        
+    
+    <form action="http://blog.oldworld.fr/index.php?post/2010/03/21/256-colors-terminal-with-tmux-and-urxvt#pr" method="post" id="comment-form">
+            
+      <h3>Add a comment</h3>
+      <fieldset>
+
+                
+        <p class="field"><label for="c_name">Name or nickname&nbsp;:</label>
+        <input name="c_name" id="c_name" type="text" size="30" maxlength="255"
+        value="" />
+        </p>
+        
+        <p class="field"><label for="c_mail">Email address&nbsp;:</label>
+        <input name="c_mail" id="c_mail" type="text" size="30" maxlength="255"
+        value="" />
+        </p>
+        
+        <p class="field"><label for="c_site">Website        (optional)&nbsp;:</label>
+        <input name="c_site" id="c_site" type="text" size="30" maxlength="255"
+        value="" />
+        </p>
+        
+        <p style="display:none"><input name="f_mail" type="text" size="30"
+        maxlength="255" value="" /></p>
+        
+        <p class="field"><label for="c_content">Comment&nbsp;:</label>
+        <textarea name="c_content" id="c_content" cols="35"
+        rows="7"></textarea>
+        </p>
+        <p class="form-help">HTML code is displayed as text and web addresses are automatically converted.</p>
+
+              </fieldset>
+      
+      <fieldset>
+        <p class="buttons"><input type="submit" class="preview" name="preview" value="preview" />
+        </p>
+      </fieldset>
+    </form>
+  
+      <div id="pings">
+    <h3>They posted on the same topic</h3>
+                <dl>
+              <dt id="c422" class="odd first"><a href="#c422"
+        class="ping-number">1.</a>
+        On Sunday, March 21 2010, 23:12        by uberVU - social comments</dt>
+        
+        <dd class="odd first">
+
+                
+        <p><a href="http://www.ubervu.com/conversations/blog.oldworld.fr/index.php%3Fpost/2010/03/21/256-colors-terminal-with-tmux-and-urxvt"
+         rel="nofollow">Social comments and analytics for this post</a></p>
+        <!-- TB -->
+
+<p>This post was mentioned on Identica by mounirlamouri: How to get 256 colors with tmux + urxvt ? http://blog.oldworld.fr/index.php?post/2010/03/21/256-colors-terminal-with-tmux-and-urxvt...</p>
+                </dd>
+            </dl>
+              </div>
+    
+      <p id="ping-url">Trackback URL&nbsp;: http://blog.oldworld.fr/index.php?trackback/12</p>
+    
+    <p id="comments-feed"><a class="feed" href="http://blog.oldworld.fr/index.php?feed/atom/comments/12"
+  title="This post's comments Atom feed">This post's comments feed</a></p>
+    </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div id="search"><h2><label for="q">Search</label></h2><form action="http://blog.oldworld.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="tags"><h2>Tags</h2><ul><li><a href="http://blog.oldworld.fr/index.php?tag/css" class="tag20" rel="tag">css</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/firefox" class="tag70" rel="tag">firefox</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/gentoo" class="tag70" rel="tag">gentoo</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/html5" class="tag50" rel="tag">html5</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/insa%20lyon" class="tag20" rel="tag">insa lyon</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/intoducing%20package" class="tag20" rel="tag">intoducing package</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/miro" class="tag20" rel="tag">miro</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/mozilla" class="tag100" rel="tag">mozilla</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/mozilla%20campus%20reps" class="tag20" rel="tag">mozilla campus reps</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/openid" class="tag20" rel="tag">openid</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/ppc" class="tag20" rel="tag">ppc</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/privacy" class="tag20" rel="tag">privacy</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/python" class="tag20" rel="tag">python</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/tinderbox" class="tag30" rel="tag">tinderbox</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/tinderboxpushlog" class="tag50" rel="tag">tinderboxpushlog</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/tmux" class="tag20" rel="tag">tmux</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/try%20server" class="tag20" rel="tag">try server</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/urxvt" class="tag20" rel="tag">urxvt</a> </li><li><a href="http://blog.oldworld.fr/index.php?tag/weave" class="tag20" rel="tag">weave</a> </li></ul><p><strong><a href="http://blog.oldworld.fr/index.php?tags">All tags</a></strong></p></div>  </div> <!-- End #blognav -->
+  
+  <div id="blogextra">
+      </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Powered by <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+<!-- Piwik -->
+<script type="text/javascript" src="http://analytics.oldworld.fr/piwik.js"></script>
+<script type="text/javascript">//<![CDATA[
+piwik_tracker_pause = 250;
+piwik_log('post/2010/03/21/256-colors-terminal-with-tmux-and-urxvt', 1, 'http://analytics.oldworld.fr/piwik.php');
+//]]>
+</script>
+<noscript><div><img src="http://analytics.oldworld.fr/piwik.php" style="border:0" alt="piwik" width="0" height="0" /></div>
+</noscript>
+<!-- /Piwik -->
+</div> <!-- End #page -->
+</body>
+</html>

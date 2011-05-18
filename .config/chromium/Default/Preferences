@@ -1,0 +1,157 @@
+{
+   "apps_promo_counter": 1,
+   "browser": {
+      "window_placement": {
+         "bottom": 600,
+         "left": 0,
+         "maximized": false,
+         "right": 1024,
+         "top": 14,
+         "work_area_bottom": 600,
+         "work_area_left": 0,
+         "work_area_right": 1024,
+         "work_area_top": 0
+      }
+   },
+   "countryid_at_install": 21843,
+   "default_apps_installed": true,
+   "default_search_provider": {
+      "enabled": true,
+      "encodings": "UTF-8",
+      "icon_url": "http://www.google.com/favicon.ico",
+      "id": "2",
+      "instant_url": "{google:baseURL}webhp?{google:RLZ}sourceid=chrome-instant&ie={inputEncoding}&ion=1{searchTerms}&nord=1",
+      "keyword": "google.com",
+      "name": "Google",
+      "prepopulate_id": "1",
+      "search_url": "{google:baseURL}search?{google:RLZ}{google:acceptedSuggestion}{google:originalQueryForSuggestion}sourceid=chrome&ie={inputEncoding}&q={searchTerms}",
+      "suggest_url": "{google:baseSuggestURL}search?client=chrome&hl={language}&q={searchTerms}"
+   },
+   "dns_prefetching": {
+      "host_referral_list": [ 2, [ "http://igurublog.wordpress.com/", [ "http://1.gravatar.com/", 0.51, "http://b.scorecardresearch.com/", 0.51, "http://edge.quantserve.com/", 0.16999999999999998, "http://igurublog.wordpress.com/", 0.16999999999999998, "http://pixel.quantserve.com/", 0.16999999999999998, "http://s.gravatar.com/", 0.51, "http://s.stats.wordpress.com/", 0.16999999999999998, "http://s1.wp.com/", 1.6999999999999995, "http://s2.wp.com/", 1.1899999999999997, "http://stats.wordpress.com/", 0.33999999999999997 ] ], [ "http://platform.twitter.com/", [ "http://platform.twitter.com/", 0.16999999999999998, "http://urls.api.twitter.com/", 0.33999999999999997 ] ], [ "http://tools.google.com/", [ "http://fls.doubleclick.net/", 0.33999999999999997, "http://fonts.googleapis.com/", 0.16999999999999998, "http://themes.googleusercontent.com/", 0.16999999999999998, "http://tools.google.com/", 0.6799999999999999, "http://www.google-analytics.com/", 0.33999999999999997, "http://www.google.com/", 1.3599999999999997 ] ], [ "http://wiki.afterstep.org/", [ "http://wiki.afterstep.org/", 3.229999999999999 ] ], [ "http://www.google.com/", [ "http://id.google.com/", 0.16999999999999998, "http://ssl.gstatic.com/", 0.5644, "http://www.google.com/", 1.9753999999999994 ] ] ],
+      "startup_list": [ 1, "http://crl.geotrust.com/", "http://fls.doubleclick.net/", "http://fonts.googleapis.com/", "http://ocsp.thawte.com/", "http://ssl.gstatic.com/", "http://themes.googleusercontent.com/", "http://tools.google.com/", "http://www.google-analytics.com/", "http://www.google.com/", "http://www.gstatic.com/" ]
+   },
+   "download": {
+      "directory_upgrade": true
+   },
+   "extensions": {
+      "autoupdate": {
+         "last_check": "12950219388285315",
+         "next_check": "12950236533097391"
+      },
+      "blacklistupdate": {
+         "lastpingday": "12950175600627018",
+         "version": "0.0.0.5"
+      },
+      "chrome_url_overrides": {
+         "bookmarks": [ "chrome-extension://eemcgdkfndhakfknompkggombfjjjeno/main.html" ]
+      },
+      "settings": {
+         "aciahcmjmecflokailenpkdchphgkefd": {
+            "app_launcher_index": 0,
+            "granted_permissions": {
+               "api": [ "unlimitedStorage" ],
+               "full": false
+            },
+            "incognito": true,
+            "install_time": "12950219389049812",
+            "location": 1,
+            "manifest": {
+               "app": {
+                  "launch": {
+                     "web_url": "http://entanglement.gopherwoodstudios.com/"
+                  },
+                  "urls": [ "http://entanglement.gopherwoodstudios.com/" ]
+               },
+               "description": "Create the longest path possible and challenge your friends in the game of Entanglement.",
+               "icons": {
+                  "128": "icon-128.png"
+               },
+               "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDUmhWocpvLByaYty7BXdP5gGHPMabneLdA/eEYQz86oi2K5hJjmpAsQvNLAn6Q2kkzsOS4OXsqpM00J60N2uVLQyw4K9wrR4avsO3R9yCKfDqcGoXQW3y+Cg73bWM99DJtDsrbnJ9mC3OcSiTE97GBhCldQyB0lmTTCQnIamhitwIDAQAB",
+               "name": "Entanglement",
+               "permissions": [ "unlimitedStorage" ],
+               "update_url": "http://clients2.google.com/service/update2/crx",
+               "version": "2.1.1"
+            },
+            "path": "aciahcmjmecflokailenpkdchphgkefd/2.1.1_0",
+            "state": 1
+         },
+         "hpibmhghjndideebpackbdlpncgkcppp": {
+            "blacklist": true
+         },
+         "lncjcfkpannmofmpgdfoonkniofdnaba": {
+            "blacklist": true
+         },
+         "mcbkbpnkkkipelfledbfocopglifcfmi": {
+            "app_launcher_index": 1,
+            "granted_permissions": {
+               "api": [ "notifications", "unlimitedStorage" ],
+               "full": false
+            },
+            "incognito": true,
+            "install_time": "12950219389139213",
+            "location": 1,
+            "manifest": {
+               "app": {
+                  "launch": {
+                     "web_url": "http://poppit.pogo.com/hd/PoppitHD.html"
+                  },
+                  "urls": [ "http://poppit.pogo.com/" ]
+               },
+               "description": "The prickly puzzle game where popping balloons has never been so much fun!  Pop colorful strings of balloons to earn a bonus!",
+               "icons": {
+                  "128": "icon_poppit.png"
+               },
+               "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDEE80zEq495GvVBavV3VqpSg6fxQ1uFruS/4lDt0R0OXwudOByq8DLehpIw6BZZzAFwNIh17wIImMSseLvf+ocyx5Ny1DTByIquqJ5g9K5mixHbRiZLZcZvJ9u7hOmiHz5YEQSj+0iVC5knN0jKv7If+aHVgyS+gYr4TOLTvKhQwIDAQAB",
+               "name": "Poppit",
+               "permissions": [ "unlimitedStorage", "notifications" ],
+               "update_url": "http://clients2.google.com/service/update2/crx",
+               "version": "2.2"
+            },
+            "path": "mcbkbpnkkkipelfledbfocopglifcfmi/2.2_0",
+            "state": 1
+         }
+      }
+   },
+   "google": {
+      "services": {
+         "username": ""
+      }
+   },
+   "homepage": "http://www.google.com/",
+   "homepage_is_newtabpage": true,
+   "ntp": {
+      "pref_version": 3,
+      "promo_build": 2,
+      "promo_closed": false,
+      "promo_end": 1299830340.0,
+      "promo_group": 8,
+      "promo_group_timeslice": 0,
+      "promo_line": "Use Chrome on another computer? Take your bookmarks and more with you.",
+      "promo_resource_cache_update": "1305741706.772985",
+      "promo_start": 1299830280.0,
+      "shown_sections": 64
+   },
+   "plugins": {
+      "enabled_internal_pdf3": true,
+      "last_internal_directory": "/usr/lib/chromium",
+      "plugins_list": [ {
+         "enabled": true,
+         "name": "Default Plug-in",
+         "path": "default_plugin",
+         "version": "1"
+      }, {
+         "enabled": true,
+         "name": "Default Plug-in"
+      } ]
+   },
+   "profile": {
+      "content_settings": {
+         "pref_version": 1
+      },
+      "exited_cleanly": false
+   },
+   "tabs": {
+      "use_vertical_tabs": false
+   }
+}
